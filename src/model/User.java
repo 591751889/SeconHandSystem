@@ -1,0 +1,83 @@
+package model;
+
+
+public class User {
+
+	private java.lang.Integer uid;
+	private java.lang.String userName;
+	private java.lang.String schoolClass;//班级
+	private java.lang.Integer sex;//性别（男：0   女：1）
+	private java.lang.String address;
+	private java.lang.String phone;
+	private java.lang.String password;
+	private java.lang.String qusetion;//密码找回的设置问题
+	private java.lang.String answer;//密码找回设置答案
+	private java.lang.Integer price;
+	
+	
+	public User() {
+	}
+	public java.lang.Integer getUid() {
+		return uid;
+	}
+	public void setUid(java.lang.Integer uid) {
+		this.uid = uid;
+	}
+	public java.lang.String getUserName() {
+		return userName;
+	}
+	public void setUserName(java.lang.String userName) {
+		this.userName = userName;
+	}
+	public java.lang.String getSchoolClass() {
+		return schoolClass;
+	}
+	public void setSchoolClass(java.lang.String schoolClass) {
+		this.schoolClass = schoolClass;
+	}
+	public java.lang.Integer getSex() {
+		return sex;
+	}
+	public void setSex(java.lang.Integer sex) {
+		this.sex = sex;
+	}
+	public java.lang.String getAddress() {
+		return address;
+	}
+	public void setAddress(java.lang.String address) {
+		this.address = address;
+	}
+	public java.lang.String getPhone() {
+		return phone;
+	}
+	public void setPhone(java.lang.String phone) {
+		this.phone = phone;
+	}
+	public java.lang.String getPassword() {
+		return password;
+	}
+	public void setPassword(java.lang.String password) {
+		this.password = password;
+	}
+	public java.lang.String getQusetion() {
+		return qusetion;
+	}
+	public void setQusetion(java.lang.String qusetion) {
+		this.qusetion = qusetion;
+	}
+	public java.lang.String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(java.lang.String answer) {
+		this.answer = answer;
+	}
+	public java.lang.Integer getPrice() {
+		return price;
+	}
+	public void setPrice(java.lang.Integer price) {
+		this.price = price;
+	}
+	
+	
+	
+}

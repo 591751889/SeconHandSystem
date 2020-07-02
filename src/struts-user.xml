@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	<struts>
+		<constant name="struts.ui.theme" value="simple"></constant>
+		<constant name="struts.i18n.encoding" value="utf-8"></constant>
+		<constant name="struts.devMode" value="false"></constant>
+		<constant name="struts.custom.i18n.resources" value="app"></constant>
+    
+		<package name="user" extends="struts-default" namespace="/user_jsp">
+			 <action name="userLogin" class="userAction" method="UserLogin">
+				<result name="index" type="redirect">/user_jsp/index.jsp</result>
+				<result name="login">/user_jsp/user_login.jsp</result>
+			 </action> 
+			 
+			 <action name="user_*" class="userAction" method="{1}">
+			 	<result name="registerFail">/user_jsp/user_regster.jsp</result>
+			 	<result name="registerSuccess">/user_jsp/user_login.jsp</result>
+			 	<result name="getPwdSuccess" >/user_jsp/forgetPwd2.jsp</result>
+			 	<result name="getPwdFail">/user_jsp/forgetPwd1.jsp</result>
+			 	<result name="answerFalse">/user_jsp/forgetPwd2.jsp</result>
+			 	<result name="answerTrue">/user_jsp/forgetPwd3.jsp</result>
+			 	<result name="updatePwdSuccess">/user_jsp/forgetPwd4.jsp</result>
+			 	 <result name="UserexitSuccess">/user_jsp/index.jsp</result>
+			 </action>
+			 
+			 <action name="product_*" class="productAction" method="{1}">
+			 	 <result name="addEvaluation" type="redirect">/user_jsp/myproduct_list.jsp</result>
+			 	 <result name="updateSuccess" type="redirect">/user_jsp/myproduct_list.jsp</result>
+			 	 <result name="uploadSuccess" type="redirect">/user_jsp/index.jsp</result>
+			 	 <result name="input">/user_jsp/error.jsp</result>
+			 	 <result name="buylist">/user_jsp/buy_order_list.jsp</result>
+			 	 <result name="selllist">/user_jsp/order_list.jsp</result>
+			 	 <result name="addOrder">/user_jsp/right_menu.jsp</result>
+			 	 <result name="mycommmentlist">/user_jsp/comment_mine.jsp</result>
+			 	 <result name="rcommmentlist">/user_jsp/comment_received.jsp</result>
+			 	 <result name="sysmessage">/user_jsp/sys_message.jsp</result>
+			 	 <result name="usermessage">/user_jsp/user_message.jsp</result>
+			 	 <result name="commentlist">/user_jsp/commentpage.jsp</result>
+			 	 <result type="chain" name="commentpage">product_getCommentList</result>
+			 	 <result type="chain" name="sysmsgDelete">product_searchMessageByPage</result> 
+			 	 <result type="chain" name="usermsgDelete">product_searchMessageByPage</result>  
+			 	 
+				<!--  拦截器 -->
+			 <interceptor-ref name="fileUpload">
+			 	<param name="allowedType">image/PNG,image/JPG</param>
+			 	<param name="maximumSize">1048576</param>
+			 </interceptor-ref>
+			 <interceptor-ref name="defaultStack"/>
+			 </action>
+			 
+			 
+		</package>
+		
+	</struts>

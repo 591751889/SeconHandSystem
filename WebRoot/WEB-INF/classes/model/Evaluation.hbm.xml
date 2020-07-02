@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+    	<class name="model.Evaluation" table="tb_evaluation">
+    		<id name="id" column="ID" type="java.lang.Integer">
+    			<generator class="native" />
+    		</id>
+    		<property name="username" column="USERNAME" length="255" type="java.lang.String"/>
+    		<property name="star" column="STAR" length="11" type="java.lang.Integer"/>
+    		<property name="sum" column="SUM" length="11" type="java.lang.Integer"/>
+    	</class>
+    </hibernate-mapping>

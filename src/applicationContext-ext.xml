@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+        
+        
+     <!-- 用户 -->
+	 <bean id="userAction" class="action.UserAction" scope="prototype">
+		<property name="iLoginService" ref="iLoginService" />
+	</bean>
+	<!-- 管理员 -->
+	 <bean id="adminAction" class="action.AdminAction" scope="prototype">
+		<property name="iLoginService" ref="iLoginService" />
+	</bean> 
+	
+	 <bean id="iLoginService" class="service.impl.LoginService">
+		<property name="iLoginDao" ref="iLoginDao" />
+	</bean> 
+	
+	 <bean id="iLoginDao" class="dao.impl.LoginDao">
+		 <property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+        
+     <!-- 后台的注入 -->
+	 <bean id="adminInfoAction" class="action.AdminAction" scope="prototype">
+		<property name="iAdminInfoService" ref="iAdminInfoService" />
+	 </bean>
+	 
+	 <bean id="iAdminInfoService" class="service.impl.AdminInfoService">
+		<property name="iAdminInfoDao" ref="iAdminInfoDao" />
+	</bean> 
+	
+	 <bean id="iAdminInfoDao" class="dao.impl.AdminInfoDao">
+		 <property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	
+	<!-- 前台的注入 -->
+	 <bean id="productAction" class="action.ProductAction" scope="prototype">
+		<property name="iUserService" ref="iUserService" />
+	 </bean>
+	 
+	 <bean id="iUserService" class="service.impl.UserService">
+		<property name="iUserDao" ref="iUserDao" />
+	</bean> 
+	 <bean id="iUserDao" class="dao.impl.UserDao">
+		 <property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+</beans>
